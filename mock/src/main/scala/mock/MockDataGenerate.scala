@@ -28,13 +28,13 @@ object MockDataGenerate {
     val sexes = Array("male", "female")
     val random = new Random()
 
-    for (i <- 0 to 10000) {
+    for (i <- 0 to 100) {
       val user_id = i
       val username = "user_" + i
       val name = "name_" + i
       val age = random.nextInt(60)
-      val professional = "professional_" + random.nextInt(10000)
-      val city = "city_" + random.nextInt(1000)
+      val professional = "professional_" + random.nextInt(100)
+      val city = "city_" + random.nextInt(50)
       val sex = sexes(random.nextInt(2))
       rows += UserInfo(user_id, username, name, age, professional, city, sex)
     }
@@ -50,7 +50,7 @@ object MockDataGenerate {
     val rows = new ArrayBuffer[ProductInfo]()
     val random = new Random()
     val productStatus = Array(0, 1)
-    for (i <- 0 to 10000) {
+    for (i <- 0 to 100) {
 
       val product_id = i
       val product_name = "product_" + i
@@ -75,19 +75,19 @@ object MockDataGenerate {
     val rows = ArrayBuffer[UserVisitAction]()
 
     //一共10000个用户（session有重复）
-    for (i <- 0 to 10000) {
+    for (i <- 0 to 100) {
 
-      val userid = random.nextInt(10000)
+      val userid = random.nextInt(100)
       // 每个用户产生100个session
-      for (j <- 0 to 100) {
+      for (j <- 0 to 10) {
         // 不可变的，全局的，独一无二的128bit长度的标识符，用于标识一个session，体现一次会话产生的sessionId是独一无二的
         val sessionid = UUID.randomUUID().toString().replace("-", "")
 
         // 在yyyy-MM-dd后面添加一个随机的小时时间（0-23）
         val baseActionTime = date + " " + random.nextInt(23)
         // 每个(userid + sessionid)生成0-100000条用户访问数据
-        for (k <- 0 to random.nextInt(100000)) {
-          val pageid = random.nextInt(100)
+        for (k <- 0 to random.nextInt(100)) {
+          val pageid = random.nextInt(10)
           // 在yyyy-MM-dd HH后面添加一个随机的分钟时间和秒时间
           val actionTime = baseActionTime + ":" + StringUtils.fulfuill(String.valueOf(random.nextInt(59))) + ":" + StringUtils.fulfuill(String.valueOf(random.nextInt(59)))
           var searchKeyword: String = null
