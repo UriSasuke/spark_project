@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+ <configuration>
+        <property>
+                <name>javax.jdo.option.ConnectionURL</name>
+                <value>jdbc:mysql://master:3306/hive?createDatabaseIfNotExist=true&amp;characterEncoding=UTF-8</value>
+        </property>
+        <property>
+                <name>javax.jdo.option.ConnectionDriverName</name>
+                <value>com.mysql.jdbc.Driver</value>
+        </property>
+        <property>
+                <name>javax.jdo.option.ConnectionUserName</name>
+                <value>root</value>
+        </property>
+        <property>
+                <name>javax.jdo.option.ConnectionPassword</name>
+                <value>root</value>
+        </property>
+	<property>
+		<name>hive.metastore.warehouse.dir</name>
+		<value>hdfs://master:9000/usr/hive/warehouse</value>
+	</property>
+	<property>
+		<name>hive.exec.scratchdir</name>
+		<value>hdfs://master:9000/usr/hive/tmp</value>
+	</property>
+	<property>
+		<name>hive.querylog.location</name>
+		<value>hdfs://master:9000/usr/hive/log</value>
+	</property>
+        <property>
+                <name>hive.cli.print.header</name>
+                <value>true</value>
+                <description>Whether to print the names of the columns in query output.</description>
+        </property>
+        <property>
+                <name>hive.cli.print.current.db</name>
+                <value>true</value>
+                <description>Whether to include the current database in the Hive prompt.</description>
+        </property>
+</configuration>

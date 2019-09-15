@@ -153,7 +153,7 @@ object MockDataGenerate {
     * @param dataRDD
     */
   def insertHive(sparkSession: SparkSession, tableName: String, dataDF: DataFrame) ={
-    val sql = "DROP TABLE IF EXISTS " + tableName
+    val sql = "drop table if exists " + tableName;
     sparkSession.sql(sql)
     dataDF.write.saveAsTable(tableName)
   }
