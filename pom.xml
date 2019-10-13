@@ -12,6 +12,7 @@
         <module>mock</module>
         <module>commons</module>
         <module>session</module>
+        <module>page-stat</module>
     </modules>
 
 

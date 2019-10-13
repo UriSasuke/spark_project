@@ -127,6 +127,7 @@ case class SessionRandomExtract(taskid: String,
 
 /**
   * top10分类信息
+  *
   * @param taskId
   * @param categoryId
   * @param clickCount
@@ -134,7 +135,27 @@ case class SessionRandomExtract(taskid: String,
   * @param payCount
   */
 case class Top10Category(taskId: String,
-                               categoryId: Long,
-                               clickCount: Long,
-                               orderCount: Long,
-                               payCount: Long)
+                         categoryId: Long,
+                         clickCount: Long,
+                         orderCount: Long,
+                         payCount: Long)
+
+
+/**
+  * top10 session
+  *
+  * @param taskid
+  * @param categoryid
+  * @param sessionid
+  * @param clickCount
+  */
+case class Top10Session(taskid: String, categoryid: Long, sessionid: String, clickCount: Long)
+
+
+/**
+  * 页面单跳转率
+  *
+  * @param taskid
+  * @param convert
+  */
+case class PageSplitConvertRate(taskid: String, convert: String)
